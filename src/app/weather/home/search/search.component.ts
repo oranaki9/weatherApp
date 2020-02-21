@@ -15,6 +15,8 @@ import { cToF } from '../../../../data-structure/utils';
 import { Action } from 'src/app/store/Action.interface';
 import { Subject, of, Observable } from 'rxjs';
 import { takeUntil, switchMap } from 'rxjs/operators';
+import { CurrentCityTempeture } from 'src/data-structure/CurrentCityTempeture.interface';
+import { FutureForecast } from 'src/data-structure/futureForecast.interface';
 
 @Component({
   selector: 'app-search',
@@ -30,11 +32,11 @@ export class SearchComponent implements OnInit, OnDestroy {
   @select() isFavorite;
   destroy$: Subject<boolean> = new Subject();
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
-  ngOnInit() {
+  ngOnInit(): void {
     if (navigator.geolocation && !this.ngRedux.getState().weather) {
       navigator.geolocation.getCurrentPosition(
         this.onPositionAccept,
@@ -45,10 +47,11 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
   }
 
-  getCityWeather(cityInfo): Observable<null | any> {
+  getCityWeather(cityInfo)
+    : Observable<[CurrentCityTempeture, FutureForecast, { cityKey: string, cityName: string }] | null> {
     return !cityInfo.length ? of(null) : this.weatherData.getWeatherData(cityInfo[0].Key, cityInfo[0].LocalizedName);
   }
-  searchCity(city) {
+  searchCity(city): void {
     if (!city) {
       return;
     }
