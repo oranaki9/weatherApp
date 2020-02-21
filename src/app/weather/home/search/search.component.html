@@ -1,0 +1,25 @@
+<form>
+  <mat-card class="search_input">
+    <mat-icon>search</mat-icon>
+    <mat-form-field>
+
+        <input
+          matInput
+          placeholder="Search City"
+          value="{{ searchText | async }}"
+          #city
+        />
+        <button  mat-button *ngIf="city.value.length" matSuffix mat-icon-button aria-label="Clear" (click)="city.value=''">
+          <mat-icon>close</mat-icon>
+          </button>
+    </mat-form-field>
+    <button
+      [disabled]="!city.value.length"
+      mat-button
+      color="accent"
+      (click)="searchCity(city.value)"
+    >
+      Search
+    </button>
+  </mat-card>
+</form>

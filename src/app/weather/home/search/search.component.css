@@ -1,0 +1,21 @@
+.search_input,
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_input {
+  padding: 0;
+  width: 100%;
+  margin: 0 30%;
+  box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 41.1rem) {
+  .search_input {
+    margin: 0;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}

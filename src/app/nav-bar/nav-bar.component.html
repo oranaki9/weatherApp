@@ -1,0 +1,53 @@
+<div class="backdrop" *ngIf="openBackDrop" (click)="closeNavBar()"></div>
+
+<mat-toolbar color="primary">
+  <div class="main-nav__title">
+    <button class="toggle-button" (click)="openNavBar()">
+      <span class="toggle-button__bar"></span>
+      <span class="toggle-button__bar"></span>
+      <span class="toggle-button__bar"></span>
+    </button>
+  </div>
+  <div class="mobile-side__nav" *ngIf="openSideNav">
+    <div class="flex-container__mobile-nav">
+      <button
+        mat-button
+        [routerLink]="['/weather']"
+        routerLinkActive="mat-accent"
+        (click)="closeNavBar()"
+      >
+        Home
+      </button>
+      <button
+        mat-button
+        [routerLink]="['/favorite']"
+        routerLinkActive="mat-accent"
+        (click)="closeNavBar()"
+      >
+        Favorites
+      </button>
+    </div>
+  </div>
+  <div class="flex-container">
+    <button class="flex-container__title" mat-button [routerLink]="['/']">
+      Weather App
+    </button>
+
+    <div>
+      <button
+        mat-button
+        [routerLink]="['/weather']"
+        routerLinkActive="mat-accent"
+      >
+        Home
+      </button>
+      <button
+        mat-button
+        [routerLink]="['/favorite']"
+        routerLinkActive="mat-accent"
+      >
+        Favorites
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

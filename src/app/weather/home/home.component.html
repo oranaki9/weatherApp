@@ -1,0 +1,43 @@
+<div class="container">
+  <app-search></app-search>
+  <mat-spinner *ngIf="isLoading | async"></mat-spinner>
+  <mat-card class="weather-result__overview" *ngIf="weather | async">
+    <div class="weather-result__title">
+      <div class="weather-result__description">
+        <div *ngIf="weather | async">
+          <app-current-weather-icon></app-current-weather-icon>
+        </div>
+        <div>
+          <app-city-name class="weather-result__cityName"></app-city-name>
+          <app-current-temp></app-current-temp>
+        </div>
+      </div>
+
+      <div>
+        <div class="addto-favorite__container">
+          <button
+            *ngIf="!(isFavorite | async); else removeFavorite"
+            mat-button
+            (click)="addToFavorite()"
+          >
+            <mat-icon matPrefix color="accent">favorite</mat-icon> Add to
+            Favorite
+          </button>
+          <ng-template #removeFavorite>
+            <button mat-button (click)="removeFromFavorite()">
+              <mat-icon matPrefix color="basic">favorite</mat-icon> Remove from
+              Favorite
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <app-toggle-unit></app-toggle-unit>
+    <div class="scattered-clouds__title">
+      Scattered clouds
+    </div>
+    <label class="weekly-forecast__title">Weekly Forecast</label>
+
+    <app-future-forecast class="weatherForecast"></app-future-forecast>
+  </mat-card>
+</div>

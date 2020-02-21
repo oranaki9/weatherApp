@@ -1,0 +1,45 @@
+.container {
+  margin-top: 8rem;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.favorite__items:focus {
+  outline: none;
+}
+
+.favorite__item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  padding: 2rem 1rem;
+  border: solid black 2px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  margin: 0.3rem;
+  min-width: 140px;
+}
+.favorite__item:hover,
+.favorite__item:active {
+  cursor: pointer;
+  box-shadow: inset 3px 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.favorite__item label {
+  cursor: pointer;
+}
+.no-favorite__div {
+  width: 100%;
+  height: 100%;
+  font-family: cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.favorite__item div label::after{
+  content: "°"
+}

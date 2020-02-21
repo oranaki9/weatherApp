@@ -1,0 +1,12 @@
+<mat-button-toggle-group
+  name="fontStyle"
+  aria-label="Font Style"
+  [value]="unitMode | async"
+>
+  <mat-button-toggle #C value="C" (click)="toggleUnit(C.value)"
+    >celsius</mat-button-toggle
+  >
+  <mat-button-toggle #F value="F" (click)="toggleUnit(F.value)"
+    >fahrenheit</mat-button-toggle
+  >
+</mat-button-toggle-group>

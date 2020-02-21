@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-card *ngIf="(myFavorite | async)?.length;else noFavorite">
+    <div class="flex-container">
+      <div
+        class="favorite__items"
+        *ngFor="let f of myFavorite | async"
+        [routerLink]="['/weather', f._cityName]"
+      >
+        <div class="favorite__item">
+          <label>{{ f._cityName }}</label>
+          <div>
+            <label>{{ f._temperature }} {{ unitMode | async }}</label>
+          </div>
+          <img src="assets/weather-icons/{{ f._weatherIcon }}.png" />
+          <label>{{ f._weatherText }}</label>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <ng-template #noFavorite>
+    <div class="no-favorite__div" >
+      Nothing on favorite yet.
+    </div>
+  </ng-template>
+
+
+</div>

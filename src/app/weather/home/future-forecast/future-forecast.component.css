@@ -1,0 +1,16 @@
+.weater-result__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: cursive;
+  padding: 2rem 1rem;
+  border: solid black 2px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  margin: 0.3rem;
+}
+@media (max-width: 48.1rem) {
+  .weater-result__item {
+    width: 70vw;
+  }
+}
